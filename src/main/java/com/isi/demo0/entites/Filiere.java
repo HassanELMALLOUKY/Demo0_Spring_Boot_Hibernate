@@ -5,18 +5,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.Set;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Filiere {
+public class Filiere implements Serializable {
     @Id
     @GeneratedValue
     private int idFiliere;
     private String name;
     @ManyToOne
     private Type type;
-    @OneToOne
-    private Etudiant etudiant;
+    @OneToMany(mappedBy = "filiere")
+    private Set<Etudiant> etudiants;
 }

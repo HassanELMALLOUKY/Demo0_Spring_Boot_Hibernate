@@ -6,16 +6,16 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+import java.io.Serializable;
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Dapartement {
+public class Jury extends Professeur implements Serializable {
     @Id
-    @GeneratedValue
-    private int idDepartement;
-    private String name;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idJury;
 
 }

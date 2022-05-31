@@ -12,10 +12,14 @@ import java.io.Serializable;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
-public class CoursTDTP implements Serializable {
+
+public class Departement implements Serializable {
     @Id
     @GeneratedValue
-    private int idCoursTdTp;
+    private int idDepartement;
     private String name;
+
+    public Departement(String name) {
+        this.name = name;
+    }
 }

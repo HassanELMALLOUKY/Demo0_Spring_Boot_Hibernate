@@ -5,13 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Etudiant {
+public class Etudiant implements Serializable {
     @Id
     @GeneratedValue
     private int idEtudiant;
@@ -19,7 +20,7 @@ public class Etudiant {
     private String prenom;
     private String cne;
     private Date dateNaissance;
-    @OneToOne
+    @ManyToOne
     //@JoinColumn(name="idFiliere")
     private Filiere filiere;
 
